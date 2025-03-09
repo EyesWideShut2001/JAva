@@ -1,36 +1,30 @@
 package ex2;
 
+import java.util.Random;
+
 public class Vers {
     private int nrCuv;
     private int nrVocale;
     private String vers;
-    //*
+    private char steluta;
+    private float randomNr;
     //nr aleator<0.1 =>majuscule
-
-
-    public Vers(int nrCuv, int nrVocale, String vers) {
-        this.nrVocale = nrVocale;
-        this.nrCuv = nrCuv;
-        this.vers = vers;
-    }
 
     public Vers(String vers) {
         this.vers = vers;
         this.nrCuv = initCuv();
         this.nrVocale = initNrVocale();
+        this.steluta =initSteluta();
+        this.randomNr= initRandomNr();
     }
 
-    public Vers() {
+    Random random = new Random();
 
+    private float initRandomNr() {
+        float randomNo = random.nextFloat(1);
+        return randomNo;
     }
 
-    public String getVers() {
-        return vers;
-    }
-
-    public void setVers(String vers) {
-        this.vers = vers;
-    }
 
     public int initCuv() {
         String[] words = vers.split("\\s+");
@@ -54,8 +48,26 @@ public class Vers {
         return nrVocale;
     }
 
+    public char initSteluta()
+    {
+        if(this.vers.endsWith("er"))
+        {
+            this.steluta = '*';
+        }else {
+            this.steluta = 0;
+        }
+
+
+        return steluta;
+    }
+
     @Override
-    public String toString() {
-        return String.format("%s are %s cuvinte si %s vocale", vers, nrCuv, nrVocale);
+    public String toString()
+    {
+        if(randomNr<0.1)
+            vers=vers.toUpperCase();
+        if(steluta=='*')
+            return String.format("%s    -are %s cuvinte si %s vocale %c", vers, nrCuv, nrVocale, steluta);
+        return String.format("%s    -are %s cuvinte si %s vocale", vers, nrCuv, nrVocale);
     }
 }
