@@ -1,5 +1,6 @@
 package ex2;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Produs
@@ -7,7 +8,7 @@ public class Produs
     private String denumire;
     private double pret;
     private int cantitate;
-    private LocalDateTime data;
+    private LocalDate data;
 
     public String getDenumire() {
         return denumire;
@@ -33,15 +34,15 @@ public class Produs
         this.cantitate = cantitate;
     }
 
-    public LocalDateTime getDataExpirare() {
+    public LocalDate getDataExpirare() {
         return data;
     }
 
-    public void setDataExpirare(LocalDateTime dataExpirare) {
+    public void setDataExpirare(LocalDate dataExpirare) {
         this.data = data;
     }
 
-    public Produs(String denumire, float pret,int bucati, LocalDateTime data) {
+    public Produs(String denumire, double pret,int bucati, LocalDate data) {
         this.denumire = denumire;
         this.pret = pret;
         this.cantitate= bucati;
