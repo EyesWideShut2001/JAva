@@ -10,6 +10,16 @@ public class Produs
     private int cantitate;
     private LocalDate data;
 
+    public static double getIncasari() {
+        return incasari;
+    }
+
+    public static void setIncasari(double amount) {
+        Produs.incasari += amount;
+    }
+
+    public static double incasari;
+
     public String getDenumire() {
         return denumire;
     }
@@ -49,6 +59,10 @@ public class Produs
         this.data= data;
     }
 
+    public Produs(double pret) {
+        this.pret = pret;
+    }
+
     @Override
     public String toString() {
         return "Produs{" +
@@ -56,6 +70,7 @@ public class Produs
                 ", pret=" + pret +
                 ", cantitate=" + cantitate +
                 ", dataExpirare=" + data +
+                ", incasari=" + incasari +
                 '}';
     }
 
