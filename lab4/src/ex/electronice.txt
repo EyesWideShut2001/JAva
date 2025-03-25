@@ -1,0 +1,7 @@
+Imprimanta, 12345, 899.99, Zona1, EXPUS, 20, 1200, 250, COLOR
+Copiatoare, 53247, 312.40, Zona7, EXPUS, 200, A3
+Imprimanta, 12346, 1200.50, Zona2, VANDUT, 30, 2400, 300, ALB_NEGRU
+Imprimanta, 12347, 499.75, Zona3, EXPUS, 15, 600, 200, ALB_NEGRU
+Copiatoare, 76437, 524.48, Zona7, VANDUT, 200, A4
+Imprimanta, 12348, 650.00, Zona4, ACHIZITIONAT, 25, 1500, 350, COLOR
+SistemeCalcul, 74340, 312.40, Zona6, EXPUS, monitorel, 100, 30, LINUX
