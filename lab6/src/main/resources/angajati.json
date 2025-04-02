@@ -1,0 +1,38 @@
+[
+  {
+    "nume": "Ion Popescu",
+    "post": "Programator",
+    "dataAngajare": "2020-03-15",
+    "salariu": 4500.50
+  },
+  {
+    "nume": "Maria Ionescu",
+    "post": "Manager",
+    "dataAngajare": "2018-06-01",
+    "salariu": 7500.00
+  },
+  {
+    "nume": "Alexandru Vasile",
+    "post": "sef-Designer",
+    "dataAngajare": "2021-11-10",
+    "salariu": 2000.00
+  },
+  {
+    "nume": "Elena Munteanu",
+    "post": "Tester",
+    "dataAngajare": "2019-09-20",
+    "salariu": 3800.75
+  },
+  {
+    "nume": "Andrei Popa",
+    "post": "director-Analist",
+    "dataAngajare": "2024-04-05",
+    "salariu": 1500.00
+  },
+  {
+    "nume": "ANA MARIA",
+    "post": "sef-it",
+    "dataAngajare": "2025-04-05",
+    "salariu": 5300.00
+  }
+]
