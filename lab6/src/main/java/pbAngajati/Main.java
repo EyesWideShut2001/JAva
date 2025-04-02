@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -76,8 +77,8 @@ public class Main
             System.out.println("6. Afișarea salariilor mai mici de 3000 de RON ");
             List <Float> listaSal = listaAngajati
                     .stream()
-                    .filter(angajat -> angajat.getSalariu()<3000)
                     .map(Angajat::getSalariu)
+                    .filter(salariu -> salariu <3000)
                     .collect(Collectors.toList());
             System.out.println(listaSal);
 
@@ -94,14 +95,47 @@ public class Main
                     () -> System.out.println("Nu există angajați în lista!"));  // Dacă nu există niciun angajat, afișăm un mesaj
 
 
+            System.out.println("8. Afișarea de statistici referitoare la salariul angajaților. Se va afișa salariul mediu,\n" +
+                    "salariul minim şi salariul maxim.");
+//            Optional<Float> minimOptional =
+//                    listaAngajati
+//                            .stream()
+//                            .map(Angajat::getSalariu)
+//                            .min(Float::compare); // Compară salariile
+//            float minim = minimOptional.orElseThrow(() -> new ArithmeticException("Salariul minim nu a fost găsit"));
+//
+//            Optional<Float> maximOptional=
+//                    listaAngajati
+//                            .stream()
+//                            .map(Angajat::getSalariu)
+//                            .max(Float::compare);
+//            float maxim=maximOptional.orElseThrow(() -> new ArithmeticException(("Salariul maxim nu a fost găsit")));
+
+            DoubleSummaryStatistics statisticaSalariiAngajati = listaAngajati.stream()
+                    .mapToDouble(Angajat::getSalariu) // Convertește salariile într-un stream de tip double
+                    .boxed()
+                    .collect(Collectors.summarizingDouble(v -> v.doubleValue()));
+
+            System.out.println("Salariul minim: " + statisticaSalariiAngajati.getMin());
+            System.out.println("Salariul maxim: " + statisticaSalariiAngajati.getMax());
+            System.out.println("Salariul mediu: " + statisticaSalariiAngajati.getAverage());
 
 
+            System.out.println("9. Afișarea unor mesaje care indică dacă printre angajați există cel puțin un “Ion”. ");
+            listaAngajati.stream()
+                    .filter(a -> a.getNume().contains("Ion"))
+                    .findAny()
+                    .ifPresentOrElse(
+                            e -> System.out.println("L-am gasit pe Ion"),
+                            () -> System.out.println("Nu exista vreun Ion"));
 
-
-
-
-
-
+            System.out.println("10. Afișarea numărului de persoane care s-au angajat în vara anului precedent. ");
+            LocalDate finalDeVara = LocalDate.of(LocalDate.now().getYear() - 1, 9, 1);
+            LocalDate inceputDeVara = LocalDate.of(LocalDate.now().getYear() - 1, 6, 1);
+            int nrAngajatiVaraTrecuta = (int) listaAngajati.stream()
+                    .filter(a -> a.getDataAngajare().isBefore(finalDeVara) && a.getDataAngajare().isAfter(inceputDeVara))
+                    .count();
+            System.out.println(nrAngajatiVaraTrecuta + " oameni s-au angajat vara trecuta");
 
         } catch (IOException e) {
             // Handle any potential file I/O exceptions
