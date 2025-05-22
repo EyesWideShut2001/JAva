@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Carti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="container mt-5">
+
+<h1 class="mb-4">Gestionare Cărți</h1>
+
+<!-- Formular operații -->
+<form method="post" action="/operatii" class="row g-3 mb-4">
+    <div class="col-md-3">
+        <input type="text" name="isbn" class="form-control" placeholder="ISBN..." />
+    </div>
+    <div class="col-md-3">
+        <input type="text" name="titlu" class="form-control" placeholder="Titlu..." />
+    </div>
+    <div class="col-md-3">
+        <input type="text" name="autor" class="form-control" placeholder="Autor..." />
+    </div>
+    <div class="col-md-12">
+        <input type="submit" name="adauga" value="Adauga" class="btn btn-success me-2"/>
+        <input type="submit" name="modifica" value="Modifica" class="btn btn-warning me-2"/>
+        <input type="submit" name="sterge" value="Sterge" class="btn btn-danger me-2"/>
+        <input type="submit" name="filtreaza" value="Filtrare dupa autor" class="btn btn-info"/>
+        <input type="submit" name="lista" value="Inapoi la lista completa" class="btn btn-info"/>
+    </div>
+</form>
+
+<!-- Mesaj -->
+<div th:if="${mesaj}" class="alert alert-primary" role="alert">
+    <span th:text="${mesaj}"></span>
+</div>
+
+<!-- Tabel carti -->
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">ISBN</th>
+        <th scope="col">Titlu</th>
+        <th scope="col">Autor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="carte : ${carti}">
+        <td th:text="${carte.isbn}"></td>
+        <td th:text="${carte.titlu}"></td>
+        <td th:text="${carte.autor}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
