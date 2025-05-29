@@ -1,0 +1,9 @@
+2025-05-29 10:18:42.182641+03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]selct *EVENIMENT EVENIMENT"; expected "SAVEPOINT, SCRIPT, SHUTDOWN"; SQL statement:
+selct *EVENIMENT EVENIMENT [42001-232]
+2025-05-29 10:18:51.833958+03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]selct *from EVENIMENT"; expected "SAVEPOINT, SCRIPT, SHUTDOWN"; SQL statement:
+selct *from EVENIMENT [42001-232]
+2025-05-29 10:18:59.662432+03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]selct * from EVENIMENT"; expected "SAVEPOINT, SCRIPT, SHUTDOWN"; SQL statement:
+selct * from EVENIMENT [42001-232]
