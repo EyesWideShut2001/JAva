@@ -187,4 +187,20 @@ public class Operatii {
         }
 
     }
+
+    public static void valideazaVarsta(int varsta) throws ExceptieVarsta {
+        if (varsta <= 0 || varsta > 120) {
+            throw new ExceptieVarsta("Vârsta trebuie să fie un număr pozitiv între 1 și 120.");
+        }
+    }
+
+    public static void valideazaAnExcursie(int an) throws ExceptieAnExcursie {
+        int anulCurent = java.time.Year.now().getValue();
+        if (an < 1900 || an > anulCurent) {
+            throw new ExceptieAnExcursie("Anul excursiei trebuie să fie între 1900 și " + anulCurent);
+        }
+    }
+
+
+
 }

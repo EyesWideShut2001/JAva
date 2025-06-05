@@ -32,7 +32,12 @@ public class Main {
                         String nume = sc.nextLine();
                         System.out.print("Vârstă: ");
                         int varsta = Integer.parseInt(sc.nextLine());
-                        Operatii.adaugaPersoana(conn, nume, varsta);
+                        try {
+                            Operatii.valideazaVarsta(varsta);
+                            Operatii.adaugaPersoana(conn, nume, varsta);
+                        } catch (ExceptieVarsta e) {
+                            System.out.println("Eroare: " + e.getMessage());
+                        }
                     }
                     case 2 -> {
                         System.out.print("ID persoană: ");
@@ -41,7 +46,12 @@ public class Main {
                         String destinatia = sc.nextLine();
                         System.out.print("Anul excursiei: ");
                         int anul = Integer.parseInt(sc.nextLine());
-                        Operatii.adaugaExcursie(conn, idPersoana, destinatia, anul);
+                        try {
+                            Operatii.valideazaAnExcursie(anul);
+                            Operatii.adaugaExcursie(conn, idPersoana, destinatia, anul);
+                        } catch (ExceptieAnExcursie e) {
+                            System.out.println("Eroare: " + e.getMessage());
+                        }
                     }
                     case 3 -> Operatii.afiseazaPersoaneCuExcursii(conn);
                     case 4 -> {

@@ -17,7 +17,8 @@ public class Db {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public static void initialize() {
+    public static void initialize()
+    {
         try (
                 Connection conn = getConnection();
                 Statement stmt = conn.createStatement();
